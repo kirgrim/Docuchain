@@ -1,0 +1,28 @@
+contract MyContract {
+    
+
+    	mapping(string => string) document;
+
+	function addDocument(string new_hash,string new_description) public {
+ 
+      	  if(keccak256(getDesc(new_hash))==keccak256("")){
+        	document[new_hash]=new_description;
+
+	  }
+	}
+    
+	function getDesc(string old_hash) public view returns (string) {
+            
+        	return document[old_hash];
+     
+	}
+
+
+
+}
+
+
+JSON: 
+
+
+[{"constant":true,"inputs":[{"name":"old_hash","type":"string"}],"name":"getDesc","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"new_hash","type":"string"},{"name":"new_description","type":"string"}],"name":"addDocument","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
